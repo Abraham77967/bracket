@@ -68,14 +68,14 @@ def determine_ranking_for_stage_item(
 ) -> defaultdict[TeamId, TeamStatistics]:
     team_x_stats: defaultdict[TeamId, TeamStatistics] = defaultdict(TeamStatistics)
     matches = [
-        (match, stage_item)
+        match
         for round_ in stage_item.rounds
         if not round_.is_draft
         for match in round_.matches
         if isinstance(match, MatchWithDetailsDefinitive)
         if match.team1_score != 0 or match.team2_score != 0
     ]
-    for match, stage_item in matches:
+    for match in matches:
         for team_index, team in enumerate(match.teams):
             if team.id is not None:
                 set_statistics_for_team(
