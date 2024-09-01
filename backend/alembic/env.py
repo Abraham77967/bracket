@@ -5,7 +5,7 @@ import sys
 # ruff: noqa: E402. We first need to insert the path
 from sqlalchemy import engine_from_config, pool
 
-from alembic import context
+from alembic import context 
 
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, parent_dir)
